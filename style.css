@@ -1,0 +1,147 @@
+header {
+    height: 2%;
+    padding: 30px;
+    text-align: left;
+}
+
+header a {
+    color: rgb(10, 56, 113);
+    height: 60px;
+    padding-left: 20px;
+    text-decoration: none;
+    font-family: "Rye", serif; 
+    font-size: 4em;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f3f5fc;
+}
+
+main {
+    font-family: Arial, Helvetica, sans-serif;
+    flex: 1;
+}
+
+.contenedor-general {
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-encriptador {
+    width: 50%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.contenedor-encriptador textarea {
+    background-color: #f3f5fc;
+    width: 90%;
+    margin: 50px 20px 20px 0px;
+    font-size: 20px;
+    border: none;
+    resize: none;
+    color: rgb(10, 56, 113);
+}
+
+.botones-encriptador {
+    box-sizing: border-box;
+    padding: 20px 0 0 0px;
+    width: 100%;
+}
+
+.botones-encriptador p {
+    font-size: .8em;
+}
+
+.contenedor-encriptador div button {
+    margin: 20px 20px 50px 00px;
+    padding: 1.3em .8em;
+    font-size: 1em;
+    border-radius: 20px;
+    width: 15vw;
+    border: 1px solid rgb(10, 56, 113);
+    cursor: pointer;
+}
+
+#boton-encriptar {
+    background-color: rgb(10, 56, 113);
+    color: white;
+}
+
+#boton-desencriptar {
+    background-color: rgb(216, 223, 232);
+    color: rgb(10, 56, 113);
+}
+
+/*CONTENEDOR RESULTADO*/
+.contenedor-resultado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 29%;
+    max-width: 350px;
+    height: 620px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 5px 10px 20px -20px #000000;
+    border-radius: 25px;
+}
+
+.contenedor-resultado img {
+    width: 70%;
+    margin: 40px 0px;
+}
+#dragonConMensaje{
+    display: none;
+    margin: 5px;
+}
+.contenedor-resultado p:nth-child(3) {
+    font-weight: bold;
+    font-size: 1.3em;
+    padding-bottom: 5px;
+}
+
+.resultado {
+    text-align: center;
+    color: rgb(80, 80, 80);
+    font-size: .9em;
+    margin: 15px;
+}
+/*Esta clase se agrega al encriptar el mensaje*/
+.resultadoEncriptado{
+    text-align: justify;
+    height: 250px;
+    width: 90%;
+    overflow: auto;
+    word-wrap: break-word;
+    padding: 15px;
+}
+.contenedor-resultado button{
+    display: none;
+    margin: 5px 0px;
+    padding: 1em .8em;
+    font-size: 1em;
+    border-radius: 20px;
+    width: 15vw;
+    border: 1px solid rgb(10, 56, 113);
+    background-color: #ffffff;
+    color: rgb(10, 56, 113);
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    flex-shrink: 0;
+    background-color: #f3f5fc;
+    padding: 4%;
+    font-family: "Rye", serif; 
+    font-size: .7em;
+}

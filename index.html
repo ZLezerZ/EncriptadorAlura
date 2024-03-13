@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/400a4b3076.js" crossorigin="anonymous"></script>
+    <title>Encriptador</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="index.html">Z</a>
+        </h1>
+    </header>
+    <main>
+        <div class="contenedor-general">
+            <div class="contenedor-encriptador">
+                <div>
+                    <textarea id="mensaje" cols="30" rows="20">Ingrese el texto aquí</textarea>
+                </div>
+                <div class="botones-encriptador">
+                    <p><i class="fa-solid fa-circle-exclamation"></i> Solo letras minúsculas y sin acentos</p>
+                    <button id="boton-encriptar" onclick="insertarResultadoEncriptado()">Encriptar</button>
+                    <button id="boton-desencriptar">Desencriptar</button>
+                </div>
+            </div>
+
+            <div class="contenedor-resultado">
+                <img src="Imagenes/dragon buscando.png" alt="dragon investigando" id="dragonSinMensaje">
+                <img src="Imagenes/dragonEncriptado.png" alt="dragon contento" id="dragonConMensaje">
+                <p>Ningún mensaje fue encontrado</p>
+                <p class="resultado">Ingrese el texto que desees encriptar o desencriptar.</p>
+                <button>Copiar</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <p class="copyrigth">&copy Encriptador Alura - Lezer Zeta 2024</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
