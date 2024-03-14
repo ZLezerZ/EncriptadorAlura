@@ -22,22 +22,20 @@
     <main>
         <div class="contenedor-general">
             <div class="contenedor-encriptador">
-                <div>
-                    <textarea id="mensaje" cols="30" rows="20">Ingrese el texto aquí</textarea>
-                </div>
+                    <textarea id="mensaje" cols="30" rows="20" placeholder="Ingrese el texto aquí"></textarea>
                 <div class="botones-encriptador">
                     <p><i class="fa-solid fa-circle-exclamation"></i> Solo letras minúsculas y sin acentos</p>
-                    <button id="boton-encriptar" onclick="insertarResultadoEncriptado()">Encriptar</button>
-                    <button id="boton-desencriptar">Desencriptar</button>
+                    <button id="boton-encriptar" onclick="insertarResultado(true)">Encriptar</button>
+                    <button id="boton-desencriptar" onclick="insertarResultado(false)">Desencriptar</button>
+                    <button id="restaurar"><i class="fa-solid fa-repeat fa-xl"></i></button>
                 </div>
             </div>
 
             <div class="contenedor-resultado">
-                <img src="Imagenes/dragon buscando.png" alt="dragon investigando" id="dragonSinMensaje">
-                <img src="Imagenes/dragonEncriptado.png" alt="dragon contento" id="dragonConMensaje">
+                <img src="Imagenes/dragon buscando.png" alt="dragon de caricatura" id="imagenDragon">
                 <p>Ningún mensaje fue encontrado</p>
                 <p class="resultado">Ingrese el texto que desees encriptar o desencriptar.</p>
-                <button>Copiar</button>
+                <button onclick="copiar()">Copiar</button>
             </div>
         </div>
     </main>
