@@ -49,6 +49,9 @@ main {
     border: 1px solid rgb(10, 56, 113);
     border-radius: 15px;
 }
+.contenedor-encriptador textarea:focus {
+    outline: none;
+}
 
 .botones-encriptador p {
     font-size: .8em;
@@ -59,13 +62,12 @@ main {
     width: 100%;
 }
 
-
 .botones-encriptador button {
     margin: 20px 20px 50px 00px;
     padding: 1.3em .8em;
     font-size: 1em;
     border-radius: 20px;
-    width: 35%;
+    width: 45%;
     border: 1px solid rgb(10, 56, 113);
     cursor: pointer;
 }
@@ -78,12 +80,6 @@ main {
 #boton-desencriptar {
     background-color: rgb(216, 223, 232);
     color: rgb(10, 56, 113);
-}
-
-#restaurar{
-    background-color: #ffffff;
-    color: rgb(10, 56, 113);
-    width: 10%;
 }
 
 /*CONTENEDOR RESULTADO*/
@@ -115,16 +111,16 @@ main {
 }
 
 .resultado {
+    height: 250px;
     text-align: center;
     line-height: 1.2em;
     color: rgb(80, 80, 80);
     font-size: .9em;
     margin: 15px;
 }
-/*Esta clase se agrega al encriptar el mensaje*/
+/*Esta clase se agrega al p resultado, cuando se encripta el mensaje*/
 .resultadoEncriptado{
     text-align: justify;
-    height: 250px;
     width: 80%;
     overflow: auto;
     word-wrap: break-word;

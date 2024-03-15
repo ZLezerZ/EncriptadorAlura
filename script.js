@@ -15,6 +15,9 @@ Por ejemplo:
 "gato" => "gaitober"
 gaitober" => "gato"*/
 var contenedorResultado = document.querySelector(".contenedor-resultado ");
+var copiado = document.querySelector(".contenedor-resultado button")
+var titulo = document.querySelector(".contenedor-resultado p");
+var mensajeResultado = document.querySelector(".resultado");
 var mensajeInput = document.getElementById("mensaje");
 var mensajeOutput = "";
 var letra = "";
@@ -42,9 +45,6 @@ function encriptar() {
             default:
                 mensajeOutput += letra;
         }
-    }
-    if (mensajeOutput == "") {
-        mensajeError();
     }
     return mensajeOutput;
 }
@@ -90,14 +90,18 @@ function desencriptar() {
                     mensajeOutput += cadenaAuxiliar;
                     cadenaAuxiliar = "";
                 }
-                if (letra == "a" || letra == "e" || letra == "i" || letra == "o" || letra == "u") {
-                    cont2++;
-                }
                 break;
+            }
+            if (letra == "a" || letra == "e" || letra == "i" || letra == "o" || letra == "u") {
+                cont2++;
         }
+        console.log("LETRA es: " + letra + " CADENA AUXILIAR: " + cadenaAuxiliar + " CONTADOR 1: " + cont1 + " CONTADOR 2: " + cont2)
     }
-    if (cont1 != cont2 || cont1 == 0 || mensajeOutput == "") {
+    if (cont1 != cont2 || cont1 == 0) {
+        console.log("EL CONTADOR 1 ES "+ cont1 + " EL CONTADOR 2 ES " + cont2);
         mensajeError();
+    }else{
+
     }
     return mensajeOutput;
 }
@@ -106,48 +110,63 @@ function mensajeError() {
     //Se cambia imagen del dragón, título y sombra del contenedor resultado.
     mensajeOutput = "¡Ups! No es posible desencriptar este mensaje. Intenta con otro.";
     var imagenDragon = document.getElementById("imagenDragon");
-    imagenDragon.src="Imagenes/dragonError.png";
+    imagenDragon.src = "Imagenes/dragonError.png";
 
     var titulo = document.querySelector(".contenedor-resultado p");
     titulo.textContent = "¡Error!";
-    titulo.style.color="#ce3803";
+    titulo.style.color = "#ce3803";
+    copiado.style.display = "none";
     contenedorResultado.style.boxShadow = "7px 10px 30px -10px #ce3803";
 }
 
 function insertarResultado(encriptado) {
-    //Se cambia imagen del dragón
-    var imagenDragon = document.getElementById("imagenDragon");
-    imagenDragon.src="Imagenes/dragonEncriptado.png";
-    //Se agrega sombra de color al contenedor del resultado.
-    contenedorResultado.style.boxShadow = "7px 10px 30px -10px #0373ba";
     //Se verifica si el mensaje ingresado es para encriptar o desencriptar a través de un booleano.
-    var mensajeResultado = document.querySelector(".resultado");
     var resultado = "";
-    var titulo = document.querySelector(".contenedor-resultado p");
-    //cambia color a título
-    titulo.style.color="#0373ba";
-    if (encriptado) {
-        titulo.textContent = "¡Mensaje encriptado!";
-        resultado = encriptar();
-    } else {
-        titulo.textContent = "¡Mensaje desencriptado!";
-        resultado = desencriptar();
-    }
-    //Se muestra el mensaje encriptado/desencriptado y se agrega clase con propiedades de estilo.
-    mensajeResultado.textContent = resultado;
-    mensajeResultado.classList.add("resultadoEncriptado");
+    var imagenDragon = document.getElementById("imagenDragon");
+    if (mensajeInput.value != "") {
+        //Se muestra el botón de copiar.
+        copiado.style.display = "block";
+        //cambia color a título
+        titulo.style.color = "#0373ba";
+        //Se cambia imagen del dragón
+        imagenDragon.src = "Imagenes/dragonEncriptado.png";
+        //Se agrega sombra de color al contenedor del resultado.
+        contenedorResultado.style.boxShadow = "7px 10px 30px -10px #0373ba";
+        if (encriptado) {
+            titulo.textContent = "¡Mensaje encriptado!";
+            resultado = encriptar();
+        } else {
+            titulo.textContent = "¡Mensaje desencriptado!";
+            resultado = desencriptar();
+        }
+        //Se muestra el mensaje encriptado/desencriptado y se agrega clase con propiedades de estilo.
+        mensajeResultado.textContent = resultado;
+        mensajeResultado.classList.add("resultadoEncriptado");
 
-    //Se muestra el botón de copiar.
-    var copiar = document.querySelector(".contenedor-resultado button")
-    copiar.style.display = "block";
+
+    }
+}
+function revertirMensajes() {
+    if (mensajeInput.value === "") {
+        imagenDragon.src = "Imagenes/dragonBuscando.png";
+        titulo.textContent = "Ningún mensaje fue encontrado";
+        titulo.style.color = "black";
+        mensajeResultado.textContent = "Ingrese el texto que desees encriptar o desencriptar.";
+        contenedorResultado.style.boxShadow = "7px 10px 30px -10px #000000";
+        copiado.style.display = "none";
+    }
 }
 
 function copiar() {
-    var boton = document.querySelector(".contenedor-resultado button");
-    var mensajeResultado = document.querySelector(".resultado");
     navigator.clipboard.writeText(mensajeResultado.textContent);
-    boton.textContent = "¡Copiado!";
+    titulo.textContent = "¡Mensaje copiado!";
+    titulo.style.color = "#257043";
+    imagenDragon.src = "Imagenes/dragonCopiado.png";
+    contenedorResultado.style.boxShadow = "7px 10px 30px -10px #257043";
     setTimeout(function () {
-        boton.textContent = "Copiar";
+        imagenDragon.src = "Imagenes/dragonEncriptado.png";
+        titulo.textContent = "¡Mensaje encriptado!";
+        titulo.style.color = "#0373ba";
+        contenedorResultado.style.boxShadow = "7px 10px 30px -10px #0373ba";
     }, 1000);
 }
