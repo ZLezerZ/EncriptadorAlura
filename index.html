@@ -25,8 +25,8 @@
                     <textarea onkeyup="revertirMensajes()" id="mensaje" cols="30" rows="20" placeholder="Ingrese el texto aquí"></textarea>
                 <div class="botones-encriptador">
                     <p><i class="fa-solid fa-circle-exclamation"></i> Solo letras minúsculas y sin acentos</p>
-                    <button id="boton-encriptar" onclick="insertarResultado(true)">Encriptar</button>
-                    <button id="boton-desencriptar" onclick="insertarResultado(false)">Desencriptar</button>
+                    <button id="boton-encriptar" onclick="insertarResultado(true); desplazarAlResultado()">Encriptar</button>
+                    <button id="boton-desencriptar" onclick="insertarResultado(false); desplazarAlResultado()">Desencriptar</button>
                 </div>
             </div>
 
@@ -34,7 +34,7 @@
                 <img src="Imagenes/dragonBuscando.png" alt="dragon de caricatura" id="imagenDragon">
                 <p>Ningún mensaje fue encontrado</p>
                 <p class="resultado">Ingrese el texto que desees encriptar o desencriptar.</p>
-                <button onclick="copiar()">Copiar</button>
+                <button onclick="copiar(); desplazarAlTextarea()">Copiar</button>
             </div>
         </div>
     </main>

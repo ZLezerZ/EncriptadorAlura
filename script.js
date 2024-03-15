@@ -160,10 +160,20 @@ function copiar() {
     titulo.style.color = "#257043";
     imagenDragon.src = "Imagenes/dragonCopiado.png";
     contenedorResultado.style.boxShadow = "7px 10px 15px -10px #257043";
+    mensajeInput.value = "";
     setTimeout(function () {
         imagenDragon.src = "Imagenes/dragonEncriptado.png";
         titulo.textContent = "¡Mensaje encriptado!";
         titulo.style.color = "#0373ba";
         contenedorResultado.style.boxShadow = "7px 10px 15px -10px #0373ba";
     }, 1000);
+}
+//Función para que al presionar encriptar o desencriptar se desplace la pantalla hacia el resultado.
+function desplazarAlResultado(){
+    var resultado = document.querySelector(".contenedor-resultado");
+    resultado.scrollIntoView({behavior: "smooth", block: "center"});
+}
+
+function desplazarAlTextarea(){
+    mensajeInput.scrollIntoView({behavior: "smooth", block: "center"});
 }
