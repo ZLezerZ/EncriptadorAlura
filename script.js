@@ -101,7 +101,6 @@ function desencriptar() {
         console.log("EL CONTADOR 1 ES "+ cont1 + " EL CONTADOR 2 ES " + cont2);
         mensajeError();
     }else{
-
     }
     return mensajeOutput;
 }
@@ -116,7 +115,7 @@ function mensajeError() {
     titulo.textContent = "¡Error!";
     titulo.style.color = "#ce3803";
     copiado.style.display = "none";
-    contenedorResultado.style.boxShadow = "7px 10px 30px -10px #ce3803";
+    contenedorResultado.style.boxShadow = "7px 10px 15px -10px #ce3803";
 }
 
 function insertarResultado(encriptado) {
@@ -131,7 +130,7 @@ function insertarResultado(encriptado) {
         //Se cambia imagen del dragón
         imagenDragon.src = "Imagenes/dragonEncriptado.png";
         //Se agrega sombra de color al contenedor del resultado.
-        contenedorResultado.style.boxShadow = "7px 10px 30px -10px #0373ba";
+        contenedorResultado.style.boxShadow = "7px 10px 15px -10px #0373ba";
         if (encriptado) {
             titulo.textContent = "¡Mensaje encriptado!";
             resultado = encriptar();
@@ -142,8 +141,6 @@ function insertarResultado(encriptado) {
         //Se muestra el mensaje encriptado/desencriptado y se agrega clase con propiedades de estilo.
         mensajeResultado.textContent = resultado;
         mensajeResultado.classList.add("resultadoEncriptado");
-
-
     }
 }
 function revertirMensajes() {
@@ -152,7 +149,7 @@ function revertirMensajes() {
         titulo.textContent = "Ningún mensaje fue encontrado";
         titulo.style.color = "black";
         mensajeResultado.textContent = "Ingrese el texto que desees encriptar o desencriptar.";
-        contenedorResultado.style.boxShadow = "7px 10px 30px -10px #000000";
+        contenedorResultado.style.boxShadow = "7px 10px 15px -10px #000000";
         copiado.style.display = "none";
     }
 }
@@ -162,11 +159,11 @@ function copiar() {
     titulo.textContent = "¡Mensaje copiado!";
     titulo.style.color = "#257043";
     imagenDragon.src = "Imagenes/dragonCopiado.png";
-    contenedorResultado.style.boxShadow = "7px 10px 30px -10px #257043";
+    contenedorResultado.style.boxShadow = "7px 10px 15px -10px #257043";
     setTimeout(function () {
         imagenDragon.src = "Imagenes/dragonEncriptado.png";
         titulo.textContent = "¡Mensaje encriptado!";
         titulo.style.color = "#0373ba";
-        contenedorResultado.style.boxShadow = "7px 10px 30px -10px #0373ba";
+        contenedorResultado.style.boxShadow = "7px 10px 15px -10px #0373ba";
     }, 1000);
 }

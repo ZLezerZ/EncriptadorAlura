@@ -9,7 +9,7 @@ header a {
     height: 60px;
     padding-left: 20px;
     text-decoration: none;
-    font-family: "Rye", serif; 
+    font-family: "Rye", serif;
     font-size: 4em;
 }
 
@@ -49,6 +49,7 @@ main {
     border: 1px solid rgb(10, 56, 113);
     border-radius: 15px;
 }
+
 .contenedor-encriptador textarea:focus {
     outline: none;
 }
@@ -56,6 +57,7 @@ main {
 .botones-encriptador p {
     font-size: .8em;
 }
+
 .botones-encriptador {
     box-sizing: border-box;
     padding: 20px 0 0 0px;
@@ -95,7 +97,7 @@ main {
     margin: 20px;
     padding: 20px;
     background-color: #ffffff;
-    box-shadow: 7px 10px 30px -10px #000000;
+    box-shadow: 7px 10px 15px -10px #000000;
     border-radius: 25px;
 }
 
@@ -118,15 +120,17 @@ main {
     font-size: .9em;
     margin: 15px;
 }
+
 /*Esta clase se agrega al p resultado, cuando se encripta el mensaje*/
-.resultadoEncriptado{
+.resultadoEncriptado {
     text-align: justify;
     width: 80%;
     overflow: auto;
     word-wrap: break-word;
     padding: 15px;
 }
-.contenedor-resultado button{
+
+.contenedor-resultado button {
     display: none;
     margin: 5px 0px;
     padding: 1em .8em;
@@ -144,6 +148,56 @@ footer {
     flex-shrink: 0;
     background-color: #f3f5fc;
     padding: 4%;
-    font-family: "Rye", serif; 
+    font-family: "Rye", serif;
     font-size: .7em;
+}
+
+/*MEDIA QUERIES*/
+@media screen and (max-width: 903px) {
+
+    .contenedor-general {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .contenedor-encriptador {
+        width: 80%;
+    }
+
+    .contenedor-encriptador textarea {
+        align-self: center;
+        margin: 30px 0px 10px 0px;
+    }
+
+    .botones-encriptador {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0px 10px;
+    }
+
+    .botones-encriptador button {
+        width: 80%;
+        margin: 15px 0px 0px;
+    }
+
+    .contenedor-resultado {
+        box-sizing: border-box;
+        width: 80%;
+        margin: 0px 0px 20px 0px;
+    }
+
+    .contenedor-resultado img {
+        margin: 20px 0px;
+        width: 60%;
+    }
+
+    .resultado{
+        height: 150px;
+    }
+
+    .contenedor-resultado button {
+        width: 80%;
+    }
+
 }
