@@ -74,6 +74,49 @@ main {
     cursor: pointer;
 }
 
+.contenedor-condiciones{
+    display: block;
+    width: 100%;
+    height: 1em;
+    position: relative;
+    margin: 0 0 .5em;
+}
+#condiciones{
+    position: absolute;
+    padding: .6em;
+
+}
+/*Estilos para resaltar las condiciones junto al mensajes de error*/
+@keyframes condicionError {
+    0% {
+        color: black;
+        border: 1px solid rgb(0, 0, 0);
+        border-radius: .6em;
+    }
+
+    50% {
+        color: rgb(155, 2, 2);
+        transform: scale(1.2);
+        transform-origin: left;
+        border: 1px solid rgb(155, 2, 2);
+        border-radius: .6em;
+    }
+
+    100% {
+        color: black;
+        transform: scale(1);
+        transform-origin: left;
+        border: 1px solid rgb(0, 0, 0);
+        border-radius: .6em;
+    }
+}
+
+.condicionesError {
+    animation: condicionError 2s;
+}
+
+/*Estilos para resaltar las condiciones junto al mensajes de error*/
+
 #boton-encriptar {
     background-color: rgb(10, 56, 113);
     color: white;
@@ -100,7 +143,8 @@ main {
     box-shadow: 7px 10px 15px -10px #000000;
     border-radius: 25px;
 }
-.contenedor-resultado::after{
+
+.contenedor-resultado::after {
     content: "";
     position: absolute;
     width: 29%;
@@ -112,7 +156,7 @@ main {
     background-image: url(Imagenes/castillo.jpg);
     background-repeat: no-repeat;
     background-size: contain;
-    background-position:bottom;
+    background-position: bottom;
 }
 
 .contenedor-resultado img {
@@ -139,7 +183,6 @@ main {
 
 /*Esta clase se agrega al p resultado, cuando se encripta el mensaje*/
 .resultadoEncriptado {
-    text-align: justify;
     width: 80%;
     overflow: auto;
     word-wrap: break-word;
@@ -209,12 +252,13 @@ footer {
         width: 80%;
         margin: 0px 0px 20px 0px;
     }
+
     .contenedor-resultado img {
         margin: 20px 0px;
         width: 60%;
     }
 
-    .resultado{
+    .resultado {
         height: 150px;
     }
 

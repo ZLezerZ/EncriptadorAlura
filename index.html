@@ -25,7 +25,9 @@
             <div class="contenedor-encriptador">
                     <textarea onkeyup="revertirMensajes()" id="mensaje" cols="30" rows="20" placeholder="Ingrese el texto aquí"></textarea>
                 <div class="botones-encriptador">
-                    <p><i class="fa-solid fa-circle-exclamation"></i> Solo letras minúsculas y sin acentos</p>
+                    <span class="contenedor-condiciones">
+                        <p id="condiciones"><i class="fa-solid fa-circle-exclamation"></i> Evite mayúsculas, caracteres especiales o con tílde.</p>
+                    </span>
                     <button id="boton-encriptar" onclick="insertarResultado(true); desplazarAlResultado()">Encriptar</button>
                     <button id="boton-desencriptar" onclick="insertarResultado(false); desplazarAlResultado()">Desencriptar</button>
                 </div>

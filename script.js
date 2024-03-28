@@ -17,6 +17,7 @@ gaitober" => "gato"*/
 var contenedorResultado = document.querySelector(".contenedor-resultado ");
 var copiado = document.querySelector(".contenedor-resultado button")
 var titulo = document.querySelector(".contenedor-resultado p");
+var condiciones = document.getElementById("condiciones");
 var mensajeResultado = document.querySelector(".resultado");
 var mensajeInput = document.getElementById("mensaje");
 var mensajeOutput = "";
@@ -45,6 +46,9 @@ function encriptar() {
             default:
                 mensajeOutput += letra;
         }
+    }
+    if(validarCaracteres() === false){
+        mensajeError(true);
     }
     return mensajeOutput;
 }
@@ -91,23 +95,39 @@ function desencriptar() {
                     cadenaAuxiliar = "";
                 }
                 break;
-            }
-            if (letra == "a" || letra == "e" || letra == "i" || letra == "o" || letra == "u") {
-                cont2++;
         }
-        console.log("LETRA es: " + letra + " CADENA AUXILIAR: " + cadenaAuxiliar + " CONTADOR 1: " + cont1 + " CONTADOR 2: " + cont2)
+        if (letra == "a" || letra == "e" || letra == "i" || letra == "o" || letra == "u") {
+            cont2++;
+        }
+        //console.log("LETRA es: " + letra + " CADENA AUXILIAR: " + cadenaAuxiliar + " CONTADOR 1: " + cont1 + " CONTADOR 2: " + cont2)
     }
-    if (cont1 != cont2 || cont1 == 0) {
-        console.log("EL CONTADOR 1 ES "+ cont1 + " EL CONTADOR 2 ES " + cont2);
-        mensajeError();
-    }else{
+    if (cont1 != cont2 || cont1 == 0 || validarCaracteres() === false) {
+        mensajeError(false);
     }
     return mensajeOutput;
 }
 
-function mensajeError() {
+function validarCaracteres() {
+    var patron = /^[a-z0-9\s]*$/;
+    //Si retorna null quiere decir que encontró caracteres especiales, sino, retorna la cadena del mensaje input
+    if (mensajeInput.value.match(patron) === null) {
+        condiciones.classList.add("condicionesError");
+        setTimeout(function () {
+            condiciones.classList.remove("condicionesError");
+        }, 2000);
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+function mensajeError(errorEncriptar) {
     //Se cambia imagen del dragón, título y sombra del contenedor resultado.
-    mensajeOutput = "¡Ups! No es posible desencriptar este mensaje. Intenta con otro.";
+    if (errorEncriptar) {
+        mensajeOutput = "¡Ups! No es posible encriptar este mensaje. <br><br>Intenta con otro.";
+    }else{
+    mensajeOutput = `¡Ups! No es posible desencriptar este mensaje. <br><br>Intenta con otro.`;}
     var imagenDragon = document.getElementById("imagenDragon");
     imagenDragon.src = "Imagenes/dragonError.png";
 
@@ -119,7 +139,7 @@ function mensajeError() {
 }
 
 function insertarResultado(encriptado) {
-    //Se verifica si el mensaje ingresado es para encriptar o desencriptar a través de un booleano.
+    //Se verifica si el mensaje ingresado es para encriptar o desencriptar a través de un booleano en el html.
     var resultado = "";
     var imagenDragon = document.getElementById("imagenDragon");
     if (mensajeInput.value != "") {
@@ -139,7 +159,7 @@ function insertarResultado(encriptado) {
             resultado = desencriptar();
         }
         //Se muestra el mensaje encriptado/desencriptado y se agrega clase con propiedades de estilo.
-        mensajeResultado.textContent = resultado;
+        mensajeResultado.innerHTML = resultado;
         mensajeResultado.classList.add("resultadoEncriptado");
     }
 }
@@ -169,11 +189,11 @@ function copiar() {
     }, 1000);
 }
 //Función para que al presionar encriptar o desencriptar se desplace la pantalla hacia el resultado.
-function desplazarAlResultado(){
+function desplazarAlResultado() {
     var resultado = document.querySelector(".contenedor-resultado");
-    resultado.scrollIntoView({behavior: "smooth", block: "center"});
+    resultado.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
-function desplazarAlTextarea(){
-    mensajeInput.scrollIntoView({behavior: "smooth", block: "center"});
+function desplazarAlTextarea() {
+    mensajeInput.scrollIntoView({ behavior: "smooth", block: "center" });
 }
